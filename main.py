@@ -12,7 +12,7 @@ def convert_to_csv(filename):
     dataframe = pd.read_csv('test.txt', delimiter=' ')
     dataframe.columns = headers
     dataframe = dataframe.drop(labels='extra', axis=1)
-    dataframe.to_csv('test.csv')
+    dataframe.to_csv('test.csv', index=None)
 
 
 def read_files(actual, predictions):
