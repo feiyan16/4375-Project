@@ -9,7 +9,7 @@ def convert_to_csv(filename):
         header = line.split(':')
         headers.append(header[0])
     headers.append('extra')
-    dataframe = pd.read_csv('test.txt', delimiter=' ')
+    dataframe = pd.read_csv('test.txt', header=None, delimiter=' ')
     dataframe.columns = headers
     dataframe = dataframe.drop(labels='extra', axis=1)
     dataframe.to_csv('test.csv', index=None)
@@ -35,7 +35,7 @@ def read_files(actual, predictions):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    convert_to_csv('test.txt')
+    # convert_to_csv('test.txt')
     actual, predicted = read_files('actual.txt', 'predictions.txt')
     count = 0
     if len(actual) != len(predicted):
